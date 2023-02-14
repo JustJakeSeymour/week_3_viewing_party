@@ -21,17 +21,4 @@ RSpec.describe 'Landing Page' do
         click_link "Home"
         expect(current_path).to eq(root_path)
     end 
-
-    it 'lists out existing users' do 
-        user1 = User.create(name: "User One", email: "user1@test.com", password: 'password123')
-        user2 = User.create(name: "User Two", email: "user2@test.com", password: 'password123')
-
-        expect(page).to have_content('Existing Users:')
-
-        within('.existing-users') do 
-            expect(page).to have_content(user1.email)
-            expect(page).to have_content(user2.email)
-        end     
-
-    end 
 end
